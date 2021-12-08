@@ -5,6 +5,7 @@ Open finder.py, instanciate the class Finder, then call 'get_sheet' method, requ
 optional argument is 'folder_name', if None is given, then the name of the folder where sheets will be downloaded is the same than the name music.
 
 Example on how to use:
+
 Bot = Finder() 
 
 Bot.get_sheet('Moonlight Sonata', folder_name = 'sheets')

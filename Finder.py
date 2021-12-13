@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from time import sleep
 from bs4 import BeautifulSoup
 import requests
@@ -17,10 +18,13 @@ class Finder():
 
         #service = Service(executable_path=Path(__file__).parent / 'chromedriver.exe')
         service = Service(executable_path=Path(os.getcwd()+r'\\chromedriver.exe'))
-
+        loadtime = DesiredCapabilities().CHROME
+        loadtime["pageLoadStrategy"] = 'eager'
+        
         self.browser = webdriver.Chrome(
             service=service,
-            options=options
+            options=options,
+            desired_capabilities=loadtime
         )
 
         self.path = os.getcwd()+r'\\Sheets'
